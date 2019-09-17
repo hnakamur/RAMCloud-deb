@@ -1,0 +1,3 @@
+usr/include/ramcloud/*.h
+usr/lib/*/libramcloud.a	
+usr/lib/*/libramcloud.so	

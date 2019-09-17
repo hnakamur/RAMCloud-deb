@@ -1,0 +1,43 @@
+#!/usr/bin/make -f
+
+# See debhelper(7) (uncomment to enable)
+# output every command that modifies files on the build system.
+export DH_VERBOSE = 1
+
+# see FEATURE AREAS in dpkg-buildflags(1)
+# export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
+# see ENVIRONMENT in dpkg-buildflags(1)
+# package maintainers to append CFLAGS
+#export DEB_CFLAGS_MAINT_APPEND  = -Wall -pedantic
+# package maintainers to append LDFLAGS
+#export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+
+DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
+DESTDIR = $(CURDIR)/debian/tmp
+
+%:
+	dh $@
+
+override_dh_auto_clean:
+	$(MAKE) clean
+	rm -rf scripts/*.pyc bindings/java/.gradle
+
+override_dh_auto_build:
+	$(MAKE) DEBUG=no
+
+override_dh_auto_test:
+	:
+
+override_dh_auto_install:
+	$(MAKE) install INSTALL_DIR=$(DESTDIR)/usr
+	mkdir -p $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)
+	mv $(DESTDIR)/usr/bin/client $(DESTDIR)/usr/bin/rc-client
+	mv $(DESTDIR)/usr/bin/coordinator $(DESTDIR)/usr/bin/rc-coordinator
+	mv $(DESTDIR)/usr/bin/ensureServers $(DESTDIR)/usr/bin/rc-ensureServers
+	mv $(DESTDIR)/usr/bin/server $(DESTDIR)/usr/bin/rc-server
+	mv $(DESTDIR)/usr/lib/ramcloud/*.a $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)
+	mv $(DESTDIR)/usr/lib/ramcloud/libramcloud.so $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)/libramcloud.so.1.0.0
+	ln -s libramcloud.so.1 $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)/libramcloud.so.1.0.0
+	ln -s libramcloud.so $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)/libramcloud.so.1.0.0
+	dh_install

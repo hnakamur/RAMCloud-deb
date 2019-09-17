@@ -1,0 +1,45 @@
+Source: ramcloud
+Priority: optional
+Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
+Build-Depends: debhelper (>= 10),
+ libboost-dev,
+ libboost-program-options-dev,
+ libboost-filesystem-dev,
+ libboost-system-dev,
+ libpcre3-dev,
+ libprotobuf-dev,
+ libssl-dev,
+ libzookeeper-mt-dev,
+ openjdk-8-jdk-headless,
+ protobuf-compiler,
+ python
+Standards-Version: 4.1.2
+Section: database
+Homepage: https://github.com/PlatformLab/RAMCloud
+
+Package: ramcloud
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: RAMCloud unofficial package
+ RAMCloud is a new class of super-high-speed storage for large-scale
+ datacenter applications. It is designed for applications in which a
+ large number of servers in a datacenter need low-latency access to
+ a large durable datastore.
+
+Package: ramcloud-dev
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: RAMCloud development files
+ RAMCloud is a new class of super-high-speed storage for large-scale
+ datacenter applications. It is designed for applications in which a
+ large number of servers in a datacenter need low-latency access to
+ a large durable datastore.
+
+Package: libramcloud-java
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: RAMCloud Java jar files
+ RAMCloud is a new class of super-high-speed storage for large-scale
+ datacenter applications. It is designed for applications in which a
+ large number of servers in a datacenter need low-latency access to
+ a large durable datastore.
