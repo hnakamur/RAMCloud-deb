@@ -11,11 +11,11 @@ RUN groupadd -g 1000 build \
  && useradd -g build -u 1000 -m build
 
 USER build
-RUN --mount=type=secret,id=gpgsecretkey,target=/home/build/.gpg-secret-key,uid=1000,gid=1000 \
+RUN --mount=type=secret,id=gpgsiningkey,target=/home/build/.gpg-sign-subkey,uid=1000,gid=1000 \
     --mount=type=secret,id=gpgpassphrase,target=/home/build/.gpgpassphrase,uid=1000,gid=1000 \
  gpg --batch --pinentry-mode loopback \
      --passphrase-file /home/build/.gpgpassphrase \
-     --import /home/build/.gpg-secret-key
+     --import /home/build/.gpg-sign-subkey
 
 #RUN apt-get update \
 # && apt-get -y install \
