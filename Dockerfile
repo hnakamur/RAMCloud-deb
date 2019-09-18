@@ -2,8 +2,6 @@
 
 FROM ubuntu:bionic
 
-ARG GPG_FINGERPRINT
-
 RUN apt-get update \
  && apt-get -y install \
       build-essential devscripts debhelper gnupg2 passwd \
@@ -42,12 +40,13 @@ RUN dpkg-buildpackage -b -us -uc 2>&1 | tee -a ../ramcloud_$(dpkg-parsechangelog
 
 RUN lintian | tee -a ../ramcloud_$(dpkg-parsechangelog -S version)_build.log
 
+ARG GPGKEY
 RUN --mount=type=secret,id=gpgsiningkey,target=/home/build/.gpg-sign-subkey,uid=1000,gid=1000 \
     --mount=type=secret,id=gpgpassphrase,target=/home/build/.gpgpassphrase,uid=1000,gid=1000 \
  gpg --batch --pinentry-mode loopback \
      --passphrase-file /home/build/.gpgpassphrase \
      --import /home/build/.gpg-sign-subkey \
- && debsign -k$GPG_FINGERPRINT -p/home/build/gpg-passphrase | tee -a ../ramcloud_$(dpkg-parsechangelog -S version)_build.log \
+ && debsign -k$GPGKEY -p/home/build/gpg-passphrase | tee -a ../ramcloud_$(dpkg-parsechangelog -S version)_build.log \
  && rm -rf /home/build/.gnupg
 
 RUN gzip -9 ../ramcloud_$(dpkg-parsechangelog -S version)_build.log
