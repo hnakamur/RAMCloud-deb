@@ -15,6 +15,7 @@ export DH_VERBOSE = 1
 
 DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 DESTDIR = $(CURDIR)/debian/tmp
+export GRADLE_USER_HOME=/home/build
 
 %:
 	dh $@
@@ -27,17 +28,10 @@ override_dh_auto_build:
 	$(MAKE) DEBUG=no
 
 override_dh_auto_test:
-	:
 
 override_dh_auto_install:
-	$(MAKE) install INSTALL_DIR=$(DESTDIR)/usr
-	mkdir -p $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)
-	mv $(DESTDIR)/usr/bin/client $(DESTDIR)/usr/bin/rc-client
-	mv $(DESTDIR)/usr/bin/coordinator $(DESTDIR)/usr/bin/rc-coordinator
-	mv $(DESTDIR)/usr/bin/ensureServers $(DESTDIR)/usr/bin/rc-ensureServers
-	mv $(DESTDIR)/usr/bin/server $(DESTDIR)/usr/bin/rc-server
-	mv $(DESTDIR)/usr/lib/ramcloud/*.a $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)
-	mv $(DESTDIR)/usr/lib/ramcloud/libramcloud.so $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)/libramcloud.so.1.0.0
-	ln -s libramcloud.so.1 $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)/libramcloud.so.1.0.0
-	ln -s libramcloud.so $(DESTDIR)/usr/lib/$(DEB_HOST_MULTIARCH)/libramcloud.so.1.0.0
-	dh_install
+	dh_auto_install -- INSTALL_DIR=$(DESTDIR)
+	mv ${DESTDIR}/bin/client ${DESTDIR}/bin/rc-client
+	mv ${DESTDIR}/bin/coordinator ${DESTDIR}/bin/rc-coordinator
+	mv ${DESTDIR}/bin/ensureServers ${DESTDIR}/bin/rc-ensureServers
+	mv ${DESTDIR}/bin/server ${DESTDIR}/bin/rc-server

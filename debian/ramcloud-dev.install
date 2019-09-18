@@ -1,3 +1,4 @@
-usr/include/ramcloud/*.h
-usr/lib/*/libramcloud.a	
-usr/lib/*/libramcloud.so	
+#!/usr/bin/dh-exec
+include	usr/include
+lib/ramcloud/libramcloud.a	/usr/lib/${DEB_HOST_MULTIARCH}
+lib/ramcloud/libramcloud.so	/usr/lib/${DEB_HOST_MULTIARCH}

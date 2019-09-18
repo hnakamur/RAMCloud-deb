@@ -20,7 +20,7 @@ Homepage: https://github.com/PlatformLab/RAMCloud
 Package: ramcloud
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: RAMCloud unofficial package
+Description: unofficial package of RAMCloud
  RAMCloud is a new class of super-high-speed storage for large-scale
  datacenter applications. It is designed for applications in which a
  large number of servers in a datacenter need low-latency access to
@@ -29,17 +29,21 @@ Description: RAMCloud unofficial package
 Package: ramcloud-dev
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: RAMCloud development files
+Description: unofficial package of RAMCloud - development files
  RAMCloud is a new class of super-high-speed storage for large-scale
  datacenter applications. It is designed for applications in which a
  large number of servers in a datacenter need low-latency access to
  a large durable datastore.
+ .
+ This package contains the library and the header files.
 
 Package: libramcloud-java
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: RAMCloud Java jar files
+Description: unofficial package of RAMCloud - java library
  RAMCloud is a new class of super-high-speed storage for large-scale
  datacenter applications. It is designed for applications in which a
  large number of servers in a datacenter need low-latency access to
  a large durable datastore.
+ .
+ This package contains the java library.
