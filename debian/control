@@ -1,7 +1,7 @@
 Source: ramcloud
 Priority: optional
 Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
-Build-Depends: debhelper (>= 10),
+Build-Depends: debhelper (>= 11),
  libboost-dev,
  libboost-program-options-dev,
  libboost-filesystem-dev,
@@ -17,14 +17,27 @@ Standards-Version: 4.1.2
 Section: database
 Homepage: https://github.com/PlatformLab/RAMCloud
 
-Package: ramcloud
+Package: ramcloud-server
 Architecture: any
 Depends: ${misc:Depends}, ${shlibs:Depends}
-Description: unofficial package of RAMCloud
+Description: unofficial package of RAMCloud - server
  RAMCloud is a new class of super-high-speed storage for large-scale
  datacenter applications. It is designed for applications in which a
  large number of servers in a datacenter need low-latency access to
  a large durable datastore.
+ .
+ This package contains the server executables.
+
+Package: ramcloud-client
+Architecture: any
+Depends: ${misc:Depends}, ${shlibs:Depends}
+Description: unofficial package of RAMCloud - client
+ RAMCloud is a new class of super-high-speed storage for large-scale
+ datacenter applications. It is designed for applications in which a
+ large number of servers in a datacenter need low-latency access to
+ a large durable datastore.
+ .
+ This package contains the client executable.
 
 Package: ramcloud-dev
 Architecture: any

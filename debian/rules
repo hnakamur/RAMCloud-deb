@@ -13,25 +13,27 @@ export DH_VERBOSE = 1
 # package maintainers to append LDFLAGS
 #export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 
-DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
 DESTDIR = $(CURDIR)/debian/tmp
+
 export GRADLE_USER_HOME=/home/build
 
 %:
-	dh $@
+	dh $@ --with-systemd
 
 override_dh_auto_clean:
-	$(MAKE) clean
+	dh_auto_clean
 	rm -rf scripts/*.pyc bindings/java/.gradle
 
 override_dh_auto_build:
-	$(MAKE) DEBUG=no
+	dh_auto_build -- DEBUG=no
 
 override_dh_auto_test:
+	# NOTE: test does not pass for release build
+	# dh_auto_test -- EXTRACXXFLAGS=-faligned-new
 
 override_dh_auto_install:
 	dh_auto_install -- INSTALL_DIR=$(DESTDIR)
-	mv ${DESTDIR}/bin/client ${DESTDIR}/bin/rc-client
-	mv ${DESTDIR}/bin/coordinator ${DESTDIR}/bin/rc-coordinator
-	mv ${DESTDIR}/bin/ensureServers ${DESTDIR}/bin/rc-ensureServers
-	mv ${DESTDIR}/bin/server ${DESTDIR}/bin/rc-server
+	mv $(DESTDIR)/bin/client $(DESTDIR)/bin/ramcloud-client
+	mv $(DESTDIR)/bin/coordinator $(DESTDIR)/bin/ramcloud-coordinator
+	mv $(DESTDIR)/bin/ensureServers $(DESTDIR)/bin/ramcloud-ensureServers
+	mv $(DESTDIR)/bin/server $(DESTDIR)/bin/ramcloud-server
