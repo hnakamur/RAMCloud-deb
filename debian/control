@@ -1,7 +1,7 @@
 Source: ramcloud
 Priority: optional
 Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
-Build-Depends: debhelper (>= 11),
+Build-Depends: debhelper (>= 11), dh-systemd,
  libboost-dev,
  libboost-program-options-dev,
  libboost-filesystem-dev,
@@ -19,7 +19,7 @@ Homepage: https://github.com/PlatformLab/RAMCloud
 
 Package: ramcloud-server
 Architecture: any
-Depends: ${misc:Depends}, ${shlibs:Depends}
+Depends: ${misc:Depends}, ${shlibs:Depends}, adduser
 Description: unofficial package of RAMCloud - server
  RAMCloud is a new class of super-high-speed storage for large-scale
  datacenter applications. It is designed for applications in which a

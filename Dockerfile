@@ -4,7 +4,7 @@ FROM ubuntu:bionic
 
 RUN apt-get update \
  && apt-get -y install \
-      build-essential devscripts debhelper gnupg2 passwd \
+      build-essential devscripts debhelper dh-systemd gnupg2 passwd \
  && groupadd -g 1000 build \
  && useradd -g build -u 1000 -s /bin/bash -m build
 
