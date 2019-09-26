@@ -1,0 +1,95 @@
+Package: libramcloud-java
+Source: ramcloud
+Version: 1.0+20190910-1hnakamur1~bionic
+Architecture: amd64
+Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
+Installed-Size: 215
+Section: database
+Priority: optional
+Homepage: https://github.com/PlatformLab/RAMCloud
+Description: unofficial package of RAMCloud - java library
+ RAMCloud is a new class of super-high-speed storage for large-scale
+ datacenter applications. It is designed for applications in which a
+ large number of servers in a datacenter need low-latency access to
+ a large durable datastore.
+ .
+ This package contains the java library.
+Filename: pool/bionic/main/r/ramcloud/libramcloud-java_1.0+20190910-1hnakamur1~bionic_amd64.deb
+MD5sum: 700660147a4c2c5aa971f5812c35cb0c
+SHA1: 2b639cbaeea2be23fa6804401ba6c451ad84935b
+SHA256: 7356b20913a6da1234840de34a3cd4c10400ddadd374af320f40dce9fe05e5b3
+SHA512: 6a08ee2fbbbaf456ee3924bdca6365230551edae74521010b1d6c2b3ded63c6d8d08c6bef9ee79cc1b5b8e28d22a95f927e58f4e66d978bfec1b1e78a9275564
+Size: 201976
+
+Package: ramcloud-client
+Source: ramcloud
+Version: 1.0+20190910-1hnakamur1~bionic
+Architecture: amd64
+Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
+Installed-Size: 993
+Depends: libboost-program-options1.65.1, libc6 (>= 2.15), libgcc1 (>= 1:3.0), libpcrecpp0v5 (>= 7.7), libprotobuf10, libstdc++6 (>= 6), libzookeeper-mt2
+Section: database
+Priority: optional
+Homepage: https://github.com/PlatformLab/RAMCloud
+Description: unofficial package of RAMCloud - client
+ RAMCloud is a new class of super-high-speed storage for large-scale
+ datacenter applications. It is designed for applications in which a
+ large number of servers in a datacenter need low-latency access to
+ a large durable datastore.
+ .
+ This package contains the client executable.
+Filename: pool/bionic/main/r/ramcloud/ramcloud-client_1.0+20190910-1hnakamur1~bionic_amd64.deb
+MD5sum: 0eb638f3c910bf90c59e2d189a562eff
+SHA1: 2e2c4a235840ea478a4e4fd639bdb5a3d2f6f0f6
+SHA256: 5902ac2773b200858e49a4cc638fc80c0a0446082a8d953a2330e3547578e7d7
+SHA512: f0c2d2fb51d09570a92e6fea426dc383de324c253da2f1d803de6bb86716c553c5f69372319eea5399c9da7658e6a26a7e2bc489384c1fe701d781e8cfd6ed6e
+Size: 309552
+
+Package: ramcloud-dev
+Source: ramcloud
+Version: 1.0+20190910-1hnakamur1~bionic
+Architecture: amd64
+Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
+Installed-Size: 6420
+Depends: libc6 (>= 2.15), libgcc1 (>= 1:3.0), libpcrecpp0v5 (>= 7.7), libprotobuf10, libstdc++6 (>= 6), libzookeeper-mt2
+Section: database
+Priority: optional
+Homepage: https://github.com/PlatformLab/RAMCloud
+Description: unofficial package of RAMCloud - development files
+ RAMCloud is a new class of super-high-speed storage for large-scale
+ datacenter applications. It is designed for applications in which a
+ large number of servers in a datacenter need low-latency access to
+ a large durable datastore.
+ .
+ This package contains the library and the header files.
+Filename: pool/bionic/main/r/ramcloud/ramcloud-dev_1.0+20190910-1hnakamur1~bionic_amd64.deb
+MD5sum: 4cf408fbb3d2e857e22c161b81fe641a
+SHA1: ce9f254d485783e7543b8bbe808d3a6f1d1e202d
+SHA256: 5fbe8b4629bb1dfe164294124696dbdc61fd34cda555b2cb5b2b493b6ea0d534
+SHA512: 56322158ca6c2912df7ce29468ed8acf592594b0c798202dda346ae2f8c134df52d0fd4ad2b8681b1ac34cb0b40b7a074a2eaa835ca5989296eaed2b184e501d
+Size: 810492
+
+Package: ramcloud-server
+Source: ramcloud
+Version: 1.0+20190910-1hnakamur1~bionic
+Architecture: amd64
+Maintainer: Hiroaki Nakamura <hnakamur@gmail.com>
+Installed-Size: 5520
+Depends: libboost-program-options1.65.1, libc6 (>= 2.15), libgcc1 (>= 1:3.0), libpcrecpp0v5 (>= 7.7), libprotobuf10, libstdc++6 (>= 6), libzookeeper-mt2, adduser
+Section: database
+Priority: optional
+Homepage: https://github.com/PlatformLab/RAMCloud
+Description: unofficial package of RAMCloud - server
+ RAMCloud is a new class of super-high-speed storage for large-scale
+ datacenter applications. It is designed for applications in which a
+ large number of servers in a datacenter need low-latency access to
+ a large durable datastore.
+ .
+ This package contains the server executables.
+Filename: pool/bionic/main/r/ramcloud/ramcloud-server_1.0+20190910-1hnakamur1~bionic_amd64.deb
+MD5sum: 6bbe1d8f26b38302f2a5c1582dffca97
+SHA1: 3a4aaa18c9dc3c7cf8a283d87982001ab7243486
+SHA256: fa1b3055e34ec34910614992de71a405a63fc58b196e36fc2661c656f4c446fb
+SHA512: 4b8ab5fed3d89689539c597b64ee8920feaa55800e0e7382817a2aa2906560de3fe2e3493affd1f956f54ecf641e1dbb4f5357324297a8cf430aa13b33f6d2c4
+Size: 1085284
+

@@ -1,0 +1,9 @@
+Archive: bionic
+Component: main
+Origin: Freight
+Label: Freight
+NotAutomatic: no
+ButAutomaticUpgrades: no
+Architecture: i386
+Date: Fri, 20 Sep 2019 16:36:41 UTC
+Valid-Until: Tue, 30 Nov 2038 00:00:00 UTC
